@@ -1,0 +1,100 @@
+/* 기본: 16:9 캔버스를 반응형으로 맞춤 */
+:root{
+  --w: 1280;
+  --h: 720;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:#0f0f12;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+.page{min-height:100%;display:grid;place-items:center;padding:12px}
+.game{
+  width:min(96vw, 1280px);
+  aspect-ratio: 16 / 9;
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  background:#000;
+  box-shadow:0 12px 40px rgba(0,0,0,.55);
+}
+.layer{position:absolute;inset:0;object-fit:cover;width:100%;height:100%}
+.bg{filter:saturate(1.02) contrast(1.02)}
+.vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,.35) 100%);pointer-events:none}
+
+.chara{object-fit:contain;pointer-events:none;filter:drop-shadow(0 14px 18px rgba(0,0,0,.55))}
+.malthus{inset:auto 0 120px 0; width:100%; height:78%; transform:translateY(-2%);}
+.danie{left:-2.5%; bottom:-8%; width:44%; height:60%;}
+
+.cg{object-fit:cover; filter:contrast(1.03) saturate(1.02)}
+.hidden{display:none!important}
+
+.textbox{
+  position:absolute; left:3%; right:3%; bottom:3%;
+  background:rgba(245,245,245,.88);
+  color:#111;
+  border-radius:16px;
+  padding:18px 18px 16px;
+  border:1px solid rgba(255,255,255,.55);
+  backdrop-filter: blur(6px);
+  cursor:pointer;
+}
+.nameplate{
+  position:absolute; left:18px; top:-16px;
+  background:rgba(245,245,245,.95);
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:999px;
+  padding:6px 12px;
+  font-weight:700;
+  font-size:14px;
+}
+.text{font-size:18px; line-height:1.55; padding-top:6px; min-height:64px; white-space:pre-wrap}
+.hint{margin-top:10px; font-size:12px; opacity:.65}
+
+.hud{
+  position:absolute; top:10px; left:10px; right:10px;
+  display:flex; justify-content:flex-end; gap:10px; pointer-events:none;
+}
+.hud-right{display:flex; gap:8px; pointer-events:auto}
+.btn{
+  appearance:none; border:1px solid rgba(255,255,255,.35);
+  background:rgba(20,20,24,.55);
+  color:#fff; padding:8px 10px;
+  border-radius:10px; font-weight:700; font-size:12px;
+  cursor:pointer;
+}
+.btn.primary{background:rgba(60,120,255,.85); border-color:rgba(255,255,255,.25)}
+.btn:active{transform:translateY(1px)}
+
+.choices{
+  position:absolute; inset:0; display:grid; place-items:center;
+  background:rgba(0,0,0,.45);
+}
+.choices-inner{
+  width:min(92%, 560px);
+  display:flex; flex-direction:column; gap:10px;
+}
+.choice-btn{
+  width:100%; text-align:left;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.7);
+  color:#111; border-radius:14px;
+  padding:14px 16px;
+  font-size:16px; font-weight:800;
+  cursor:pointer;
+}
+.choice-btn:hover{filter:brightness(0.98)}
+.choice-btn:active{transform:translateY(1px)}
+
+.ending{
+  position:absolute; inset:0; display:grid; place-items:center;
+  background:rgba(0,0,0,.55);
+}
+.ending-card{
+  width:min(92%, 560px);
+  background:rgba(18,18,22,.9);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:18px;
+  padding:18px;
+}
+.ending-title{font-size:22px; font-weight:900; margin-bottom:10px}
+.ending-text{font-size:16px; line-height:1.6; opacity:.92}
+.ending-actions{margin-top:14px; display:flex; justify-content:flex-end}

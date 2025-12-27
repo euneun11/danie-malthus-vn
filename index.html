@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Danie × Malthus - Web VN Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <div id="game" class="game" aria-label="visual novel">
+      <img id="bg" class="layer bg" alt="">
+      <img id="malthus" class="layer chara malthus" alt="">
+      <img id="danie" class="layer chara danie" alt="">
+      <img id="cg" class="layer cg hidden" alt="">
+      <div class="vignette"></div>
+
+      <div id="choices" class="choices hidden" role="dialog" aria-label="선택지">
+        <div class="choices-inner" id="choicesInner"></div>
+      </div>
+
+      <div class="hud">
+        <div class="hud-right">
+          <button id="btnAuto" class="btn">AUTO</button>
+          <button id="btnSkip" class="btn">SKIP</button>
+          <button id="btnSave" class="btn">SAVE</button>
+          <button id="btnLoad" class="btn">LOAD</button>
+        </div>
+      </div>
+
+      <div id="textbox" class="textbox" tabindex="0" role="button" aria-label="다음 대사">
+        <div class="nameplate"><span id="name"></span></div>
+        <div id="text" class="text"></div>
+        <div class="hint">클릭/스페이스: 다음</div>
+      </div>
+
+      <div id="ending" class="ending hidden" role="dialog" aria-label="엔딩">
+        <div class="ending-card">
+          <div class="ending-title" id="endingTitle"></div>
+          <div class="ending-text" id="endingText"></div>
+          <div class="ending-actions">
+            <button id="btnRestart" class="btn primary">처음으로</button>
+          </div>
+        </div>
+      </div>
+
+      <audio id="bgm" loop preload="auto"></audio>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
