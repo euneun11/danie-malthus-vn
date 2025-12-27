@@ -98,3 +98,38 @@ body{background:#0f0f12;color:#fff;font-family:system-ui,-apple-system,"Segoe UI
 .ending-title{font-size:22px; font-weight:900; margin-bottom:10px}
 .ending-text{font-size:16px; line-height:1.6; opacity:.92}
 .ending-actions{margin-top:14px; display:flex; justify-content:flex-end}
+
+/* ===== Opening ===== */
+.opening{position:absolute;inset:0;display:grid;place-items:center;background:#000;z-index:50;cursor:pointer}
+.opening-inner{width:min(92%,900px);padding:28px 18px}
+.opening-text{color:#eaeaea;font-size:22px;line-height:1.85;letter-spacing:0.2px;white-space:pre-wrap;text-shadow:0 2px 16px rgba(0,0,0,.65);min-height:220px}
+.opening-hint{margin-top:14px;font-size:12px;opacity:.65;color:#fff}
+.opening.hide{display:none!important}
+
+/* 기본(맬서스의 ‘이성’ 톤) */
+.opening-text.cold{color:#eaeaea;animation:fadeIn .45s ease both}
+
+/* 환청/속내(다른 색 + 깜박임) */
+.opening-text.whisper{color:#cbbdff;animation:flicker 1.7s infinite}
+.opening-text.whisper-strong{color:#ffb7c4;animation:flickerStrong 1.2s infinite}
+.opening-text.whisper-red{color:#ff8a8a;animation:flickerStrong 1.0s infinite}
+
+/* 살짝 흔들림(환청 느낌) */
+@keyframes flicker{
+  0%,100%{opacity:1;transform:translate(0,0)}
+  12%{opacity:.70;transform:translate(.3px,-.2px)}
+  22%{opacity:.95;transform:translate(-.2px,.2px)}
+  36%{opacity:.65;transform:translate(.6px,.2px)}
+  55%{opacity:.92;transform:translate(-.3px,-.2px)}
+  73%{opacity:.78;transform:translate(.2px,.4px)}
+}
+@keyframes flickerStrong{
+  0%,100%{opacity:1;transform:translate(0,0)}
+  8%{opacity:.55;transform:translate(.8px,-.5px)}
+  16%{opacity:.95;transform:translate(-.6px,.4px)}
+  28%{opacity:.40;transform:translate(1px,.6px)}
+  44%{opacity:.88;transform:translate(-.7px,-.4px)}
+  62%{opacity:.50;transform:translate(.9px,.2px)}
+  80%{opacity:.92;transform:translate(-.4px,.6px)}
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
